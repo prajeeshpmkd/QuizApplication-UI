@@ -1,0 +1,39 @@
+
+ <ng-container *ngIf="questionDetails$ | async as questionDetails">
+    <div class="quiz-container">
+        <div class="quiz-header d-flex justify-content-between align-items-center">
+            <h6>Question {{currentQuestionIndex+1}}</h6>
+            <div class="quiz-timer">
+                <span>0.{{timer | number: '2.0'}}</span>
+            </div>
+        </div>
+        <!-- <hr class="my-3"> -->
+
+        <div class="quiz-question">
+            
+            <br>
+            <h6>{{questionDetails[currentQuestionIndex].questionText}}</h6>
+        </div>
+        <div class="row">
+            <div *ngFor="let option of questionDetails[currentQuestionIndex].options" class="col-md-6 col-sm-6 col-xs-12">
+               <div class="quiz-option btn btn-light w-100"
+               [ngClass]="{
+                'btn-success': selectedOption && option.isCorrect, 
+                'btn-danger': selectedOption && !option.isCorrect && selectedOption?.answerId === option.answerId, 
+                'btn-light': !selectedOption,
+                'disabled-option': selectedOption
+              }"
+                (click)="!selectedOption ? selectOption(option) : null"
+               >{{option.answerText}}</div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around align-items-center">
+            <button (click)="goToPreviousQuestion()" [disabled]="isFirstQuestion(questionDetails)" class="btn btn-primary">Back</button>
+            <button *ngIf="!isLastQuestion(questionDetails)" (click)="goToNextQuestion()" [disabled]="isLastQuestion(questionDetails)" class="btn btn-primary">Next</button>
+            <button *ngIf="isLastQuestion(questionDetails)" (click)="goToSubmitQuestion()" [disabled]="!isLastQuestion(questionDetails)"  class="btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+    
+</ng-container>
+
