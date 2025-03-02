@@ -27,11 +27,11 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
-    path:'Result123',
+    path:'Result',
     component:QuizresultComponent
   },
   {
-    path:'Result',
+    path:'Result-demo',
     component:ResultComponent
   },
   {
