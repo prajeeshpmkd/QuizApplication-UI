@@ -23,7 +23,7 @@
                 'btn-light': !selectedOption,
                 'disabled-option': selectedOption
               }"
-                (click)="!selectedOption ? selectOption(option) : null"
+                (click)="!selectedOption ? selectOption(option,questionDetails) : null"
                >{{option.answerText}}</div>
             </div>
         </div>

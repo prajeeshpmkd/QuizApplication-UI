@@ -6,6 +6,7 @@ import { QuizPageComponent } from './core/quiz-page/quiz-page.component';
 import { LoginComponent } from './core/Auth/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { QuizresultComponent } from './core/quizresult/quizresult.component';
+import { ResultComponent } from './core/result/result.component';
 
 const routes: Routes = [
   {
@@ -26,9 +27,12 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
+    path:'Result123',
+    component:QuizresultComponent
+  },
+  {
     path:'Result',
-    component:QuizresultComponent,
-    canActivate:[authGuard]
+    component:ResultComponent
   },
   {
     path:'quiz/:quizId',

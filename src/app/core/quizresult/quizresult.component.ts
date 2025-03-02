@@ -20,12 +20,26 @@ export class QuizresultComponent {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.quizResult = {
-        UserId: params['UserId'],
+        UserId: params['UserId'].charAt(0).toUpperCase()+params['UserId'].slice(1).toLowerCase(),
         QuizId: Number(params['QuizId']),
         Score: Number(params['Score']),
         TimeTaken: Number(params['TimeTaken'])
       };
     });
+    console.log("ResultComponent Loaded!");
+  }
+  getAppreciateMessage(score:number| undefined):string
+  {
+    if (score === undefined) 
+      return "Not Participated";
+
+    if (score > 6) {
+      return "CONGRATULATIONS";
+    }
+    else 
+    {
+    return "You failed, Please try again";
+    }
   }
 
   getPerformanceMessage(score: number | undefined): string {
@@ -43,8 +57,7 @@ export class QuizresultComponent {
   }
 
   redirectToQuizPage(){
-    this.router.navigate(['/quiz']);
+    this.router.navigate(['quiz']);
     console.log('started');
   }
-
 }

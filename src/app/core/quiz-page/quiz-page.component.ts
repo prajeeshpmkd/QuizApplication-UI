@@ -24,7 +24,7 @@ export class QuizPageComponent implements OnInit{
 
   errorMessage:string |null=null;
 
-  timer:number =59;
+  timer:number =29;
   totaltimetaken:number =0;
   timerSubscription?:Subscription;
 
@@ -73,7 +73,7 @@ constructor(private route:ActivatedRoute,
 
   resetTimer(){
     this.clearTimer();
-    this.timer=59;
+    this.timer=29;
     this.startTimer();
   }
 
@@ -98,14 +98,19 @@ constructor(private route:ActivatedRoute,
     return this.currentQuestionIndex===0;
   }
 
-  selectOption(option: Option):void {
+  selectOption(option: Option,questions:QuestionDetails[]):void {
     this.selectedOptions[this.currentQuestionIndex]=option;
     this.selectedOption=option;
     this.attemptedCount++;
     if(option.isCorrect){
       this.resultCount++;
     }
-
+    setTimeout(()=>{
+      if(!this.isLastQuestion(questions)){
+        this.goToNextQuestion();
+      }
+    },500);
+    
     console.log('Attempted Count :' + this.attemptedCount);
     console.log('Result Count : ' +this.resultCount);
     console.log('Total time taken : ' + this.totaltimetaken);

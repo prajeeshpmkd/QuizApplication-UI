@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit  {
 
   ngOnInit(): void {
     this.authService.username$.subscribe(username => {
-      this.UserName = username;
+      this.UserName =username? username.charAt(0).toUpperCase()+username.slice(1).toLowerCase() : username;
       this.cdr.detectChanges();
     });
   }

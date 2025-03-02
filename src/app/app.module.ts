@@ -13,7 +13,6 @@ import { provideHttpClient, withInterceptors  } from '@angular/common/http';
 import { CardDetailsComponent } from './card/card-details/card-details/card-details.component';
 import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { QuizPageComponent } from './core/quiz-page/quiz-page.component';
-import { QuizresultComponent } from './core/quizresult/quizresult.component';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { authInterceptor } from './interceptors/auth.interceptor';
@@ -25,8 +24,7 @@ import { RouterModule } from '@angular/router';
         CardComponent,
         CardDetailsComponent,
         NavBarComponent,
-        QuizPageComponent,
-        QuizresultComponent
+        QuizPageComponent
     ],
     bootstrap: [AppComponent], 
     imports: [BrowserModule,RouterModule,

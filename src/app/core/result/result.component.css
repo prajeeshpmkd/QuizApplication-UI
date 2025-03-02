@@ -9,7 +9,7 @@ html, body {
     font-family: 'Calibri', sans-serif !important;
 }
 
-.quizresult-container {
+.Card-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ html, body {
     width: 93vw;
 }
 
-.quizresult-dialog {
+.Card-dialog {
     display: flex;
     align-items: center;
     justify-content: center;

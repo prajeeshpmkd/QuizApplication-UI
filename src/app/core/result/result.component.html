@@ -1,0 +1,18 @@
+
+<div class="result-container">
+    <div class="Card-container">
+       <div class="Card-dialog">
+           <div class="card">
+               <div class="text-right cross"></div>
+               <div class="card-body text-center">
+                   <img src="https://img.icons8.com/bubbles/200/000000/trophy.png">
+                   <h4>{{getAppreciateMessage(quizResult?.Score)}}</h4>
+                   <h5>{{quizResult?.UserId}}</h5>
+                   <h6>Your Score: {{ quizResult?.Score }}/20</h6>
+                   <p>{{ getPerformanceMessage(quizResult?.Score) }}</p>
+                   <button class="btn btn-primary" (click)="redirectToQuizPage()">CONTINUE</button>
+               </div>
+           </div>
+       </div>
+   </div>
+   </div>
